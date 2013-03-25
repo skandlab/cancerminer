@@ -1,0 +1,2 @@
+class MrnasController < ApplicationController
+end

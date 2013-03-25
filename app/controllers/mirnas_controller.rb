@@ -1,0 +1,2 @@
+class MirnasController < ApplicationController
+end

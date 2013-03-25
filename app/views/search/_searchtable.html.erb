@@ -1,0 +1,16 @@
+<tr class="<%= cycle("even","odd") %>">
+<% rnks = '<span class="barplot" data-ranks=""' %>
+<% rnka = object.ranks.split(",").zip(object.relative_ranks.split(",")) %>
+<% sparkline_data = []; sparkline_targets = [] %>
+<% CancerType.all.each_with_index{|c,idx| sparkline_data << "{'name': '"+c.name+"', 'rr': "+(rnka[idx][1] == 'NA' ? '-10' : (sprintf("%.4f",rnka[idx][1].to_f).to_f+0.00001*idx).to_s)+", 'rank': "+(rnka[idx][0] == 'NA' ? 'null' : rnka[idx][0])+"}"} %>
+<% sparkline_targets << "{'method': 'miRanda-miRSVR', 'val': #{[(object.target_mirsvr || 0)/1.0,1.0].min+0.001}, 'score': #{sprintf('%.2f',-1*(object.target_mirsvr || 0))}}" %>
+<% sparkline_targets << "{'method': 'TargetScan contextscore', 'val': #{[(object.target_tscan_contextscore || 0)/0.4,1.0].min+0.002}, 'score': #{sprintf('%.2f',-1*(object.target_tscan_contextscore || 0))}}" %>
+<% sparkline_targets << "{'method': 'TargetScan pct (conservation)', 'val': #{[(object.target_tscan_pct || 0)/1.0,1.0].min+0.003}, 'score': #{sprintf('%.2f',(object.target_tscan_pct || 0))}}" %>
+<td><%= object.mirna.name[4..-1] %></td>
+<td><%= object.mrna.symbol %></td>
+<td><%= sprintf("%.2f",object.score) %></td>
+<td><%= object.fdr <= 0.01 ? sprintf("%.0e",object.fdr) : sprintf("%.2f",object.fdr) %></td>
+<td align="center"><span style="float:left;font: bold 10px Verdana,sans-serif;">+<br>-</span><span class="barplot" data-ranks='[<%= sparkline_data.join(',').gsub("'",'"').html_safe %>]'></span></td>
+<td align="center"><span class="barplot_targets" data-targets='[<%= sparkline_targets.join(',').gsub("'",'"').html_safe %>]'></span></td>
+<td><%= link_to ">>", cross_association_score_path(object.id),:remote => true, :class => 'details' %></td>
+</tr>

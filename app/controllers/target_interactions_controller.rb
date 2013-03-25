@@ -1,0 +1,2 @@
+class TargetInteractionsController < ApplicationController
+end

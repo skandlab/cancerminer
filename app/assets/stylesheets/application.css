@@ -1,0 +1,232 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.button
+ *= require jquery.ui.autocomplete
+//= require jquery.ui.accordion
+ *= require jquery.ui.tooltip
+ *= require_tree .
+ */
+
+h1, h2, h3, h4, h5, h6, p, address, blockquote, table, dl, fieldset {margin:10px 0; }
+
+h1, h2, h3, h4, h5, h6 { font-family: Cambria,Utopia,serif; }
+
+a:link {
+    color: #333;
+}
+
+a:visited {
+    color: #333;
+}
+
+a:hover {
+    color: #666;
+}
+
+#main {width:960px; margin:0 auto;}
+
+#header {position:relative; padding:0px 0px 0px 0px; margin-left: 20px; margin-bottom: 3px; margin-right: 50px;}
+
+#logo {
+    float: left;
+    margin-bottom: 5px;
+}
+
+#logodesc {
+    float: left;
+    font: italic 10px Verdana, arial, sans-serif;
+    text-align: left;
+    margin-top: 24px;
+    margin-left: 5px;
+    padding: 0px;
+    line-height:0px;
+}
+
+.headerinfo {
+    font: 12px Verdana, arial, sans-serif;
+    margin-top: 25px;
+    margin-right: 8px;
+    float: right;
+}
+
+#content {width:960px; margin:0px 10px 0px 10px;}
+
+#footer {clear:both; padding:20px 20px 40px 20px; font-size:85%;}
+
+.noscreen {display:none;}
+
+#flash_notice, #flash_alert {
+  width: 300px;
+  text-align: center;
+  padding: 5px 8px;
+  margin: 0 auto;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.ui-autocomplete {
+    max-height: 100px;
+    font: 10px Verdana, arial, sans-serif !important;
+    overflow-y: auto;
+    /* prevent h   orizontal scrollbar */
+    overflow-x: hidden;
+}
+
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+    height: 100px;
+}
+
+#search_spinner {
+    float: left;
+    width:900px;
+    left:50%;
+    margin-top: 25px;
+    margin-bottom: -25px;
+}
+
+#paginate_spinner {
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+#search_form {
+    /* font not working ... */
+    border: solid 1px #666; border-radius: 10px; background-color: #fff;
+    width: 900px;
+    margin:0 2px 10px 2px;
+    padding: 12px;
+    overflow: hidden;
+    float:left;
+}
+
+#search_form_text {
+    font: 12px Verdana, arial, sans-serif !important;
+}
+
+#search_submit {
+    font: 12px Verdana, arial, sans-serif !important;
+    margin-left: 10px;
+    padding: 1px 10px 1px 10px !important;
+}
+
+#miRNA {
+    font: 11px Verdana, arial, sans-serif !important;
+    width : 100px;
+    margin: 5px 0px 5px 0px;
+}
+
+#mRNA {
+    font: 11px Verdana, arial, sans-serif !important;
+    width : 90px;
+}
+
+#pathway {
+    font: 11px Verdana, arial, sans-serif !important;
+    width : 225px;
+}
+
+.ctype {
+    clear: both;
+    margin: 0px 0px 0px 22px;
+    line-height: 25px;
+}
+
+.ctype .ui-button .ui-button-text {
+    font: 11px Verdana, arial, sans-serif !important;
+    padding: 0px 5px 0px 5px !important;
+}
+
+.ctype input, .ctype label {
+    float: left;
+    margin: 0px !important;  
+}
+
+#association {
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 3px;
+    padding: 0px;
+}
+
+#association .ui-button .ui-button-text {
+    font: 12px Verdana, arial, sans-serif !important;
+    padding: 1px 5px 1px 5px !important;
+}
+
+#targets {
+    display: inline-block;
+    margin: 2px 3px 1px 83px;
+    padding: 0px;
+}
+
+#targets .ui-button .ui-button-text {
+    font: 12px Verdana, arial, sans-serif !important;
+    padding: 1px 5px 1px 5px !important;
+}
+
+#twotablebox {text-align:center; float: left; width: auto; margin: 0px 5px 20px 2px; overflow:hidden; border: solid 1px #666; border-radius: 10px; background-color: #fff} 
+.tablebox {display:inline-block; vertical-align: top; width: 500px; margin: 4px; padding: 5px; line-width:10px;}
+table.search {margin:0px auto;}
+table.search em {font-style: normal; background-color:#FFCC66;color:black}
+table.search th{ font: italic 10px Verdana,sans-serif; margin: 0px 5px 0px 5px; padding: 1px 1px 1px 1px;}
+table.search th.header{ font: italic 11px Verdana,sans-serif; padding: 1px 4px 1px 4px; margin: 0px 5px 2px 5px; text-align: left; background: #ddd;}
+table.search tr td{ font: 11px Verdana,sans-serif; background:none; padding:0px 5px 0px 5px; text-align:center}
+table.search tr.even td{ background:none; background-color: #fff; padding:0px 5px 0px 5px}
+table.search tr.odd td{ background:none; background-color: #eee; padding:0px 5px 0px 5px}
+
+#pair_details { float: left; width: auto; padding: 10px; margin: 0px 2px 0px 5px; overflow:hidden; border: solid 1px #666; border-radius: 10px; background-color: #fff; display: none}
+
+table.details {float: left; width: 190px; align: left; clear: both}
+table.details th.header{ font: italic 11px Verdana,sans-serif; padding: 1px 4px 1px 4px; margin: 0px 5px 2px 5px; text-align: left; background: #ddd;}
+table.details th.row{ font: italic 10px Verdana,sans-serif; padding: 3px 1px 3px 5px; margin: 0px 1px 0px 5px; text-align: left;}
+table.details tr td{ font: 11px Verdana,sans-serif; background:none; padding:0px 5px 0px 5px;}
+
+a.plotit {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-style: italic;
+/*  text-decoration: none; */
+  color: #333;
+}
+
+a.plotit:visited {
+    color: #333;
+}
+
+a.plotit:hover {
+    color: #666;
+}
+
+a.details {
+  font-family: "Comic Sans MS", verdana, arial, helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 120%;
+  color: #333;
+}
+
+a.details:visited {
+    color: #333;
+}
+
+a.details:hover {
+    color: #666;
+}

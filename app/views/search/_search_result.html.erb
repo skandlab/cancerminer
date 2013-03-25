@@ -1,0 +1,41 @@
+<% if !flash[:alert].blank? %>
+<div style="clear:left" />
+<div id="flash_alert"><%= flash[:alert].map{|x| h x}.join("<br>").html_safe %></div></div>
+<% end %>
+
+<div id='dtc' data-ccolors='["#E41A1C", "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00", "#FFCC11", "#A65628","#F781BF","#999999","#66C2A5"]'></div>
+
+<% if !@cas.nil? and !@cas.empty? %>
+<br>
+<div id='twotablebox'>
+  <div id="search_table_pag" class='tablebox'>
+    <table class="search">
+      <tr><th>miRNA</th><th>mRNA</th>
+        <th title="Association
+        Recurrence score (signed log-10 <i>P</i>-value), evaluating the
+        extent associations are recurring positive/negative across all
+        cancer types.">AR score</th>
+        <th title="Estimated global False Discovery Rate when
+        evaluating association recurrence for all miRNA and mRNA pairs.">FDR</th>
+        <th title="Associaion ranks in individual cancer types. The AR
+        score considers the rank of the association relative to all
+        associations measured for the given miRNA and cancer type.">Cancer types</th>
+        <th title="Predicted target interaction, the three bars
+        display interaction scores for three sequence-based
+        predciction methods: miRanda-miRSVR, TargetScan context-score,
+        and TargetScan conservation score.">Target</th><tr>
+        <%= render :partial => 'searchtable', :collection => @cas, :as => :object %>
+    </table>
+    <br>
+    <div align='center'>
+      <%= will_paginate @cas, :page_links => false %>
+      <span style="font-size:80%">
+        Displaying rank <b><%= @cas.offset+1 %>-<%= @cas.offset+@cas.size %></b>
+      </span>
+      <div id='paginate_spinner'></div>
+      <br>
+    </div>
+  </div>
+</div>
+<div id='pair_details'></div>
+<% end %>

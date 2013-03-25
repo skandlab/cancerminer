@@ -1,0 +1,55 @@
+
+<table class="details" style="width:280px;">
+<tr><th colspan="2" align="center" class="header">Details for</th></tr>
+<tr><th class="row">miRNA</th><td><%= @cross_association_score.mirna.name %></li></td></tr>
+<tr><th class="row">mRNA</th><td><%= @cross_association_score.mrna.symbol %><br><div style="font-size:70%"><%= @cross_association_score.mrna.name %></div></td></tr>
+<tr><th class="row" title="Association
+        Recurrence score (signed log-10 <i>P</i>-value), evaluating the
+        extent associations are recurring positive/negative across all
+        cancer types.">AR score</th>
+        <td><%= sprintf('%.2f',@cross_association_score.score) %> (<i>P</i> = <%= sprintf('%.2e',10**(-1*@cross_association_score.score.abs)) %>)</td>
+</tr>
+<tr><th class="row" title="Estimated global False Discovery Rate when
+        evaluating association recurrence for all miRNA and mRNA pairs.">FDR</th>
+        <td><%= @cross_association_score.fdr <= 0.01 ? sprintf("%.2e",@cross_association_score.fdr) : sprintf("%.2f",@cross_association_score.fdr) %></td>
+</tr>
+</table>
+
+<table class="details" style="width:280px;">
+<tr><th colspan="2" align="center" class="header">Predicted target interactions</th></tr>
+<tr><th class="row">miRanda-miRSVR score</th><td><%= sprintf('%.2f',@cross_association_score.target_mirsvr || 0) %></td></tr>
+<tr><th class="row">TargetScan context score</th><td><%= sprintf('%.2f',@cross_association_score.target_tscan_contextscore || 0) %></td></tr>
+<tr><th class="row">TargetScan conservation score</th><td><%= sprintf('%.2f',@cross_association_score.target_tscan_pct || 0) %></td></tr>
+</table>
+</div>
+
+<div style="clear:left" />
+
+<table class="search" align="center" style="width:300px;">
+<tr><th colspan="5" align="center" class="header">Association scores for individual cancer types</th></tr>
+<tr><th>Cancer<br>type</th>
+        <th title="Rank of association score when considering all gene scores for the given miRNA and cancer type. ">Association<br>rank</th>
+        <th title="Signed log-10 <i>P</i>-value when evaluating correlation of miRNA and mRNA log-expression levels in a linear also factoring in DNA copy number and methylation level of the mRNA.">Association<br>score</th>
+        <th>P-value</th></tr>
+<% regr_scores = @cross_association_score.regr_scores.split(",") %>
+<% ranks = @cross_association_score.ranks.split(",") %>
+<% CancerType.all.each_with_index do |ctype,idx| %>
+   <% regr_score = regr_scores[idx] %>
+   <% if regr_score.empty? or regr_score == 'NA' %>
+      <tr class="<%= idx % 2 == 0 ? 'even' : 'odd' %>"><td style="color:<%= ctype.color%>"><%= ctype.name %></td><td><i>No data</i></td><td/><td/></tr>
+   <% else %>
+      <tr class="<%= idx % 2 == 0 ? 'even' : 'odd' %>">
+      <td style="color:<%= ctype.color%>"><%= ctype.name %></td>
+      <td><%= ranks[idx] %></td>
+      <td><%= sprintf('%.2f',regr_score.to_f) %></td>
+      <td><%= sprintf('%.2e',10**(-regr_score.to_f.abs)) %></td>
+      <td title="Coming soon ..."><%= link_to "Plot", "",:remote => true, :class => 'plotit' %></td>
+      </tr>
+   <% end %>
+<% end %>
+</table>
+
+
+
+
+

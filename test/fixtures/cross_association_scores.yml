@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  score: 1.5
+  ranks: MyString
+  relative_ranks: MyString
+
+two:
+  score: 1.5
+  ranks: MyString
+  relative_ranks: MyString

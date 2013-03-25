@@ -1,0 +1,2 @@
+class MrnaAliasesController < ApplicationController
+end

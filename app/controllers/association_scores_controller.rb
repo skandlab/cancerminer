@@ -1,0 +1,2 @@
+class AssociationScoresController < ApplicationController
+end

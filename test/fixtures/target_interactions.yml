@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mirsvr: 1.5
+  tscan_pct: 1.5
+  tscan_contextscore: 1.5
+
+two:
+  mirsvr: 1.5
+  tscan_pct: 1.5
+  tscan_contextscore: 1.5
