@@ -26,6 +26,11 @@ $ ->
      source: "/search/mirnas",
      minLength: 2
 
+#  $("#GBM_radio").click ->
+#     alet "click!"
+#     $("#GBM_sig_check").button.enable() if $("#GBM_radio").button("option","enabled");
+#     $("#GBM_sig_check").button.disable() if $("#GBM_radio").button("option","disabled");
+
   $("#miRNA").click ->
     $(this).val "" if $(this).val() is "miRNA"
 

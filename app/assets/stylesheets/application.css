@@ -124,9 +124,12 @@ a:hover {
 }
 
 #search_submit {
-    font: 12px Verdana, arial, sans-serif !important;
+    font: 13px  Verdana, arial, sans-serif !important;
     margin-left: 10px;
-    padding: 1px 10px 1px 10px !important;
+    padding: 4px 10px 4px 10px !important;
+    background: #696969;
+    color: white;
+    font-style: normal;
 }
 
 #miRNA {
