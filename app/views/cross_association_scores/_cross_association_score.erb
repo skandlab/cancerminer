@@ -5,8 +5,8 @@
 <tr><th class="row">mRNA</th><td><%= @cross_association_score.mrna.symbol %><br><div style="font-size:70%"><%= @cross_association_score.mrna.name %></div></td></tr>
 <tr><th class="row" title="Association
         Recurrence score (signed log-10 <i>P</i>-value), evaluating the
-        extent associations are recurring positive/negative across all
-        cancer types.">AR score</th>
+        extent associations are recurring positive/negative across
+        cancer types.">REC score</th>
         <td><%= sprintf('%.2f',@cross_association_score.score) %> (<i>P</i> = <%= sprintf('%.2e',10**(-1*@cross_association_score.score.abs)) %>)</td>
 </tr>
 <tr><th class="row" title="Estimated global False Discovery Rate when
