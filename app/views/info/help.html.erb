@@ -1,0 +1,51 @@
+
+<h3>Approach</h3>
+
+<a href='/'>CancerMiner.org</a> is a comprehensive resource for
+discovery and prioritization of functional
+miRNA-mRNA target interactions and relationships in human cancer using 
+molecular datasets from <a href = 'http://cancergenome.nih.gov'>The
+  Cancer Genome Atlas</a>.
+<br><br>
+
+<i>Analysis in single cancer types.</i> Our method first evaluates expression relationships of miRNAs and
+mRNAs in individual cancer types. For each miRNA-mRNA pair, we
+measure the association between miRNA and mRNA expression across the
+set of patient tumors using a multivariate linear model that also factors in
+variation (noise) in mRNA expression induced by changes in DNA copy
+number and promoter methylation at the mRNA gene locus.
+<br><br>
+
+<i>Analysis across cancer types.</i> To explore the hypothesis that individual miRNA-target relationships
+are active in multiple cancer types and may regulate common cancer
+traits, we use a rank-based statistical score, the <i>REC</i>
+score. The approach ranks miRNA-mRNA expression associations in the
+context of miRNA and cancer type and evaluates the null hypothesis
+that no association exists between the miRNA-mRNA pair in all cancer
+types. This rank-based approach ensures
+that individual cancer types are weighted equally, and limits bias
+from cancer data sets with large sample sizes or from strong
+associations measured in only a single cancer type. A strong negative <i>REC</i>
+score reflects that the miRNA-mRNA pair generally show
+anti-correlation across the studied cancer types, and this is evidence
+of a functional miRNA target relationship.
+
+<br><br>
+For details about the method, and for citing the resource, please
+refer to the paper:
+
+<br>
+<ul><li>
+Anders Jacobsen, Joachim Silber, Girish Harinath, Jason T Huse,
+Nikolaus Schultz, Chris Sander. <i>Analysis of microRNA-target interactions across
+diverse cancer types</i>. Nature Structural & Molecular Biology (2013).
+</li></ul>
+
+<h3>Tutorial</h3>
+Below is a quick tutorial for getting started with the site.<br><br>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/26590115"
+        width="476" height="400" frameborder="0" marginwidth="0"
+        marginheight="0" scrolling="no"></iframe>
+
+<br>

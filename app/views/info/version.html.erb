@@ -1,0 +1,23 @@
+
+<h3>Version 1.0</h3>
+
+This release of CancerMiner includes data from the following
+<%= @cancer_types.size %> TCGA cancer types:
+
+<div id="maincontent">
+  <table>
+     <tr>
+       <th>Abbreviation</th>
+       <th>Cancer Type</th>
+       <th>Samples</th>
+     </tr>
+     <% @cancer_types.each do |ct| %>
+     <tr>
+       <td><font color=" <%= ct.color %> "><%= ct.name %> </font></td>
+       <td><%= ct.description %></td>
+       <td align="right"><%= ct.sample_count %></td>
+     </tr>
+     <% end %>
+     
+  </table>
+</div>
