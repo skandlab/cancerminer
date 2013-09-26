@@ -1,4 +1,5 @@
 class CancerTypesController < ApplicationController
+  layout "info"
   # GET /cancer_types
   # GET /cancer_types.json
   def index

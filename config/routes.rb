@@ -5,15 +5,16 @@ Cmir::Application.routes.draw do
   resources :cancer_types, :only => [:index]
 
   get "search/index"
-
   get 'search/mirnas'
   get 'search/mrnas'
   get 'search/pathways'
   get 'search/pairs'
-  #get 'data'
-  #get 'version'
-
   match 'search/' => 'search#index'
+  
+  #get 'data/index'
+  match 'version/' => 'info#version'
+  match 'about/' => 'info#about'
+  match 'help/' => 'info#help'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

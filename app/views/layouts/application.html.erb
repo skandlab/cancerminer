@@ -16,11 +16,11 @@
     <div id="header">
       <a href="/"><img id='logo' style="height:40px" src='<%= image_path("/assets/cancerMiner-logo.png") %>'/></a>
       <div id="logodesc">Search recurring microRNA-mRNA associations across cancer types</div>
-      <div class="headerinfo"><a href="/about.html">about</a></div>
-      <div class="headerinfo"><a href="/version.html">version 1.0</a></div>
+      <div class="headerinfo"><%= link_to "about", :controller => :info, :action => :about %></div>
+      <div class="headerinfo"><%= link_to "help", :controller => :info, :action => :help %></div>
+      <div class="headerinfo"><%= link_to "version 1.0", :controller => :info, :action => :version %></div>
     </div> <!-- /header -->
-    
-    
+        
     <div id="content">
       
       <%= form_tag('/search/pairs', :method => "get", :id => "search_form_submit") do %>

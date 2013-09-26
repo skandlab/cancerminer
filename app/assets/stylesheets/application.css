@@ -119,6 +119,16 @@ a:hover {
     float:left;
 }
 
+#info_box {
+    /* font not working ... */
+    width: 650px;
+    margin:10px 2px 10px 2px;
+    padding: 12px;
+    overflow: hidden;
+    float:left;
+}
+
+
 #search_form_text {
     font: 13px "Helvetica Neue",Helvetica,Arial,sans-serif; /*Verdana, arial, sans-serif !important; */
 }

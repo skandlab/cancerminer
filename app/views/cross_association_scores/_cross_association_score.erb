@@ -17,9 +17,9 @@
 
 <table class="details" style="width:280px;">
 <tr><th colspan="2" align="center" class="header">Predicted target interactions</th></tr>
-<tr><th class="row">miRanda-miRSVR score</th><td><%= sprintf('%.2f',@cross_association_score.target_mirsvr || 0) %></td></tr>
-<tr><th class="row">TargetScan context score</th><td><%= sprintf('%.2f',@cross_association_score.target_tscan_contextscore || 0) %></td></tr>
-<tr><th class="row">TargetScan conservation score</th><td><%= sprintf('%.2f',@cross_association_score.target_tscan_pct || 0) %></td></tr>
+<tr><th class="row">miRanda-miRSVR score</th><td><%= @cross_association_score.target_mirsvr ? sprintf('%.2f',-1.0*@cross_association_score.target_mirsvr) : '0' %></td></tr>
+<tr><th class="row">TargetScan context score</th><td><%= @cross_association_score.target_tscan_contextscore ? sprintf('%.2f',-1.0*@cross_association_score.target_tscan_contextscore) : '0' %></td></tr>
+<tr><th class="row">TargetScan conservation score</th><td><%= @cross_association_score.target_tscan_pct ? sprintf('%.2f',@cross_association_score.target_tscan_pct) : '0' %></td></tr>
 </table>
 </div>
 
