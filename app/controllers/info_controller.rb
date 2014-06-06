@@ -18,5 +18,14 @@ class InfoController < ApplicationController
     end
     
   end
+
+  def download
+
+    respond_to do |format|
+      format.html
+    end
+    
+  end
+
   
 end

@@ -15,6 +15,7 @@ Cmir::Application.routes.draw do
   match 'version/' => 'info#version'
   match 'about/' => 'info#about'
   match 'help/' => 'info#help'
+  match 'download/' => 'info#download'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
